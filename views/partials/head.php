@@ -10,12 +10,11 @@
         rel="stylesheet"
         href="./css/style.css"
     >
+    <link
+            rel="icon"
+            href="./img/logo.svg"
+    >
 </head>
-<body class="h-full">
+<body class="h-full bg-main">
 
-<div class="min-h-full bg-slate-600">
-
-    test
-</div>
-</body>
-</html>
+<div class="min-h-full bg-waves bg-no-repeat bg-left">
