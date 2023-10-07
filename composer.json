@@ -1,0 +1,16 @@
+{
+    "name": "frane/php-blog",
+    "authors": [
+        {
+            "name": "Franek Wojas",
+            "email": "49079734+FranekDev@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
