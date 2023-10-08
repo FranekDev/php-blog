@@ -6,8 +6,6 @@ require BASE_PATH . '/vendor/autoload.php';
 
 require BASE_PATH . 'Core/functions.php';
 
-//view("404.php");
-
 $router = new \Core\Router();
 
 $routes = require base_path('routes.php');

@@ -8,9 +8,9 @@ class Router
 {
     protected array $routes = [];
 
-    public function add($method, $uri, $controller): static
+    public function add($method, $uri, $controller, $middleware = null): static
     {
-        $this->routes[] = compact('method', 'uri', 'controller');
+        $this->routes[] = compact('method', 'uri', 'controller', 'middleware');
 
         return $this;
     }
@@ -51,7 +51,7 @@ class Router
     {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-//                Middleware::resolve($route['middleware']);
+                Middleware::resolve($route['middleware']);
 
                 return require base_path('Http/controllers/' . $route['controller']);
             }
