@@ -25,6 +25,13 @@ function abort($code = 404): never
     die();
 }
 
+function authorize($condition, $status = Response::FORBIDDEN) : void
+{
+    if (! $condition) {
+        abort($status);
+    }
+}
+
 function base_path($path): string
 {
     return BASE_PATH . $path;
@@ -37,7 +44,7 @@ function view($path, $attributes = [])
     require base_path('views/' . $path);
 }
 
-function redirect($path)
+function redirect($path): never
 {
     header("location: {$path}");
     exit();

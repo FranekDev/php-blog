@@ -17,4 +17,4 @@
 </head>
 <body class="h-full bg-main">
 
-<div class="min-h-full bg-waves bg-no-repeat bg-left">
+<div class="min-h-full bg-waves bg-no-repeat ">
