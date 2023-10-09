@@ -1,5 +1,5 @@
 <nav class="flex flex-row justify-between items-center w-full h-auto px-8 pt-4 z-10">
-    <div class="flex flex-row justify-between gap-10">
+    <div class="flex flex-row justify-between gap-10 h-14">
         <div class="flex justify-center items-center gap-x-20 border-[3px] border-black px-12 py-2 rounded-3xl [&>a]:text-lg bg-main">
             <a
                     href="/"
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="flex justify-center items-center border-[3px] border-secondary px-8 py-2 rounded-3xl [&>a]:text-lg">
+    <div class="flex justify-center items-center border-[3px] border-secondary px-8 py-2 rounded-3xl [&>a]:text-lg h-14">
         <?php if ($_SESSION['user'] ?? false) : ?>
             <form
                     action="/session"
@@ -35,7 +35,7 @@
                 >
                 <button>Log Out</button>
             </form>
-        <?php elseif (urlIs('/login')): ?>
+        <?php elseif (urlIs('/login') || urlIs('/')): ?>
             <a href="/register">Register</a>
         <?php else: ?>
             <a href="/login">Log in</a>

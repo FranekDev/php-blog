@@ -24,7 +24,7 @@ class Authenticator
         return false;
     }
 
-    public function login($user): void
+    public static function login($user): void
     {
         $_SESSION['user'] = [
             'email' => $user['email'],

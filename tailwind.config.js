@@ -16,6 +16,9 @@ module.exports = {
       boxShadow: {
         'buttonShadow': '-5px 5px 0px 0px #000000',
       },
+      fontFamily: {
+        'oi': ['Oi'],
+      },
     },
   },
   plugins: [],
