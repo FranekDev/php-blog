@@ -60,7 +60,12 @@ class Router
         $this->abort();
     }
 
-    protected function abort($code = 404): never {
+    public function previousUrl()
+    {
+        return $_SERVER['HTTP_REFERER'];
+    }
+
+    protected function abort(int $code = 404): never {
         http_response_code($code);
 
         require base_path("views/{$code}.php");

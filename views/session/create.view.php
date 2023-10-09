@@ -9,8 +9,9 @@
             <label>
                 <input
                         type="text"
-                        placeholder="Login"
+                        placeholder="Email"
                         class="w-[500px] h-[40px] bg-[#FDF9E8] rounded-[15px] p-4"
+                        name="email"
                 >
             </label>
             <label>
@@ -18,11 +19,18 @@
                         type="password"
                         placeholder="Password"
                         class="w-[500px] h-[40px] bg-[#FDF9E8] rounded-[15px] p-4"
+                        name="password"
                 >
+                <?php if (isset($errors['password'])) : ?>
+                    <p class="text-red-500 text-xs mt-2"><?= $errors['password'] ?></p>
+                <?php endif; ?>
             </label>
 
             <button class="bg-button border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow w-fit">Log in
             </button>
+            <?php if (isset($errors['email'])) : ?>
+                <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
+            <?php endif; ?>
         </form>
     </main>
 

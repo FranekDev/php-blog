@@ -6,7 +6,7 @@ class App
 {
     protected static $container;
 
-    public static function setContainer($container): void
+    public static function setContainer($container)
     {
         static::$container = $container;
     }
@@ -25,4 +25,5 @@ class App
     {
         return static::container()->resolve($key);
     }
+
 }

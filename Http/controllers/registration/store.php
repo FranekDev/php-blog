@@ -5,9 +5,8 @@ use Core\Database;
 use Core\Validator;
 
 $config = require base_path('config.php');
-$db = new Database($config['database']);
-//dd(App::resolve(Database::class));
-//$db = App::resolve(Database::class);
+
+$db = App::resolve(Database::class);
 
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -27,7 +26,7 @@ if (!Validator::string($name, 1, 255)) {
     $errors['name'] = 'Please provide a name of at least one character.';
 }
 
-if ($password !== $confirm_password) {
+if (!Validator::passwords($password, $confirm_password)) {
     $errors['confirm_password'] = 'Passwords are not matching.';
 }
 
