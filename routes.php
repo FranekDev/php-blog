@@ -15,5 +15,6 @@ $router->post('/register', 'registration/store.php')->only('guest');
 
 // Threads
 $router->get('/threads', 'threads/index.php')->only('auth');
+$router->post('/threads', 'threads/store.php')->only('auth');
 
 // Thread

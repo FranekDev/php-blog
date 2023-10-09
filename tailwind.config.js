@@ -11,7 +11,7 @@ module.exports = {
       backgroundImage: {
         'waves': "url(/img/waves.svg)",
         'circleBR': "url(/img/circleBR.svg)",
-        'circleTL': "url(/img/circleTL.svg)",
+        'circleTL': "url(/img/circleTL.svg)"
       },
       boxShadow: {
         'buttonShadow': '-5px 5px 0px 0px #000000',

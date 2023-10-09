@@ -21,11 +21,16 @@ class Database
 
     public function query($query, $params = []): false | Database
     {
-        $this->statement  =$this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
 
         $this->statement->execute($params);
 
         return $this;
+    }
+
+    public function get(): false | array
+    {
+        return $this->statement->fetchAll();
     }
 
     public function find()
@@ -43,4 +48,5 @@ class Database
 
         return $result;
     }
+
 }
