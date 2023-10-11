@@ -76,7 +76,7 @@
                         <div>
                             <?php if ($comment['email'] === $_SESSION['user']['email']) : ?>
                                 <a
-                                        href="/thread/comment/edit?id=<?= $comment['id'] ?>"
+                                        href="/comment/edit?id=<?= $comment['id'] ?>"
                                         class="<?= getUserColor($index) ?> border-2 border-black rounded-xl px-4 py-1.5 m-2 w-fit"
                                 >Edit</a>
                             <?php endif; ?>
@@ -94,7 +94,7 @@
         <?php endif; ?>
     </div>
 
-<!--    <div class="fixed bottom-0 mb-10 shadow-sm w-full flex justify-center">-->
+    <!--    <div class="fixed bottom-0 mb-10 shadow-sm w-full flex justify-center">-->
     <div class="mb-10 shadow-sm w-full flex justify-center">
         <div class="w-[1000px] border-2 border-black rounded-xl bg-[#FDF9E8] shadow-buttonShadow">
             <form
