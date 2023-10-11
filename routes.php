@@ -26,5 +26,5 @@ $router->delete('/threads', 'threads/destroy.php')->only('auth');
 // Comment
 $router->get('/comment/edit', 'comments/edit.php');
 $router->post('/thread', 'comments/store.php')->only('auth');
-$router->patch('/thread', 'comments/edit.php')->only('auth');
+$router->patch('/thread', 'comments/update.php')->only('auth');
 $router->delete('/thread', 'comments/destroy.php')->only('auth');

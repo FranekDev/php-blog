@@ -5,7 +5,7 @@
     <main class="flex flex-col justify-center items-center h-full w-full p-8 gap-5">
         <div class="w-[1000px] h-auto bg-yellow-50 rounded-[20px] border-2 border-black p-5">
             <form
-                    action="/threads"
+                    action="/thread"
                     method="post"
                     class="flex flex-col justify-around items-start w-full"
             >
@@ -29,7 +29,7 @@
 
                     <label class="w-full">
                         <textarea
-                                name="description"
+                                name="body"
                                 rows="5"
                                 class="bg-[#FDF9E8] rounded-[15px] p-4 w-full focus:border-button focus:border-2 focus:border-solid focus:ring-0 outline-none"
                         ><?= $comment['body'] ?? '' ?></textarea>
