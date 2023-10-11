@@ -4,7 +4,7 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
-//dd($_POST);
+//dd($_GET);
 
 $db = App::resolve(Database::class);
 
@@ -15,16 +15,33 @@ if (!Validator::string(trim($_POST['comment']), 1, 255)) {
 }
 
 if (!empty($errors)) {
-    return view('threads/show.view.php');
+
+    $thread = $db->query('select posts.*, users.name, users.email from posts join users on posts.user_id = users.id where posts.id = :id', [
+        'id' => $_GET['id'] ?? -1
+    ])->findOrFail();
+
+    $comments = $db->query('select comments.*, users.name, users.email from comments join users on comments.user_id = users.id where comments.post_id = :post_id and comments.user_id = users.id', [
+        'post_id' => $_GET['id']
+    ])->get();
+
+    return view('threads/show.view.php', [
+        'errors' => $errors,
+        'thread' => $thread,
+        'comments' => $comments
+    ]);
 }
 
 date_default_timezone_set('Europe/Warsaw');
 $date = date("Y-m-d H:i:s");
 
+$user_id = $db->query('select id from users where email = :email', [
+    'email' => $_SESSION['user']['email']
+])->find();
+
 $db->query('insert into comments(body,post_id, user_id, last_edit) values (:body, :post_id, :user_id, :last_edit)', [
     'body' => trim($_POST['comment']),
     'post_id' => $_POST['post_id'],
-    'user_id' => $_POST['user_id'],
+    'user_id' => $user_id['id'],
     'last_edit' => $date
 ]);
 

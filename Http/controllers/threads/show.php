@@ -9,9 +9,11 @@ $thread = $db->query('select posts.*, users.name, users.email from posts join us
     'id' => $_GET['id'] ?? -1
 ])->findOrFail();
 
-$comments = $db->query('select * from comments where post_id = :post_id', [
+$comments = $db->query('select comments.*, users.name, users.email from comments join users on comments.user_id = users.id where comments.post_id = :post_id and comments.user_id = users.id', [
     'post_id' => $_GET['id']
 ])->get();
+
+//dd($comments);
 
 view('threads/show.view.php', [
     'thread' => $thread,

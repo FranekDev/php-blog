@@ -1,4 +1,4 @@
-<nav class="flex flex-row justify-between items-center w-full h-auto px-8 pt-4 z-10 bg-main">
+<nav class="flex flex-row justify-between items-center w-full h-auto px-8 pt-4 bg-main sticky top-0 z-50">
     <div class="flex flex-row justify-between gap-10 h-14">
         <div class="shrink-0">
             <img
