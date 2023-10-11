@@ -47,23 +47,27 @@
         </div>
 
         <div>
-            Comments
+            <?php foreach ($comments as $comment) : ?>
+            <p><?= $comment['body'] ?></p>
+            <?php endforeach; ?>
         </div>
     </div>
 
     <div class="fixed bottom-0 mb-10">
         <div class="w-[1000px] border-2 border-black rounded-xl bg-[#FDF9E8] shadow-buttonShadow">
             <form
-                    action="<?= $_SERVER['HTTP_HOST'] ?>"
+                    action=""
                     class="flex justify-between items-center h-16 bg-[#FDF9E8] rounded-[15px] p-4"
                     method="post"
             >
+                <input type="hidden" name="post_id" value="<?= $thread['id'] ?>">
+                <input type="hidden" name="user_id" value="<?= $thread['user_id'] ?>">
                 <label>
                     <input
                             type="text"
                             placeholder="Add a new comment"
                             class="bg-transparent w-[600px] outline-none"
-                            name="title"
+                            name="comment"
                     >
                 </label>
                 <div class="flex justify-center items-center bg-button border-[3px] border-black rounded-xl w-[45px] h-[45px]">

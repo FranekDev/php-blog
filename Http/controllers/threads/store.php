@@ -8,13 +8,21 @@ $db = App::resolve(Database::class);
 
 $errors = [];
 
-if (!Validator::string($_POST['title'], 1, 255)) {
+if (!Validator::string(trim($_POST['title']), 1, 255)) {
     $errors['title'] = 'A title of no more than 255 characters is required';
 }
 
 if (!empty($errors)) {
+
+    $threads = $db->query(
+        'select posts.*, users.name, users.email from posts 
+    join users on posts.user_id = users.id
+    order by posts.id desc'
+    )->get();
+
     return view('threads/index.view.php', [
-        'errors' => $errors
+        'errors' => $errors,
+        'threads' => $threads
     ]);
 }
 

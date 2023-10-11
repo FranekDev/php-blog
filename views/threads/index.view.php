@@ -27,9 +27,12 @@
                     </button>
                 </div>
             </form>
+                    <?php if (isset($errors['title'])) : ?>
+                        <p class="text-red-500 text-xs mt-2"><?= $errors['title'] ?></p>
+                    <?php endif; ?>
         </div>
 
-        <?php if (count($threads)) : ?>
+        <?php if (isset($threads)) : ?>
             <div class="bg-[#FDF9E8] w-[1000px] h-auto rounded-[15px] flex flex-col justify-center items-center gap-4 p-4">
                 <?php $index = 0; ?>
                 <?php foreach ($threads as $thread) : ?>

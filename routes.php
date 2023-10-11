@@ -19,6 +19,7 @@ $router->post('/threads', 'threads/store.php')->only('auth');
 
 // Thread
 $router->get('/thread', 'threads/show.php')->only('auth');
+$router->post('/thread', 'comments/store.php')->only('auth');
 $router->get('/thread/edit', 'threads/edit.php')->only('auth');
 $router->patch('/threads', 'threads/update.php')->only('auth');
 $router->delete('/threads', 'threads/destroy.php')->only('auth');
