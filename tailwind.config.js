@@ -7,6 +7,9 @@ module.exports = {
         'main': '#FFFCED',
         'button': '#FFE382',
         'secondary': '#BCBCBC',
+        'bluePost': '#55ADFF',
+        'greenPost': '#8DFF9F',
+        'redBtn': '#FF9882',
       },
       backgroundImage: {
         'waves': "url(/img/waves.svg)",

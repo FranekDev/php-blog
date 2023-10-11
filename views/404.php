@@ -2,14 +2,9 @@
 
 <?php require('partials/nav.php') ?>
 
-<main class="">
-    404 nie<br>
-    404 nie<br>
-    404 nie<br>
-    404 nie<br>
-    404 nie<br>
-    404 nie<br>
-    404 nie<br>
+<main class="flex flex-col justify-center items-center mt-40">
+    <div class="font-oi text-9xl">404</div>
+    <p class="text-2xl">Sorry. Page not found...</p>
 </main>
 
 <?php require('partials/footer.php') ?>

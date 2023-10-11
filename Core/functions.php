@@ -49,3 +49,18 @@ function redirect($path)
     header("location: {$path}");
     exit();
 }
+
+function getUserColor($id): string
+{
+    return match ($id % 3) {
+        1 => 'bg-greenPost',
+        2 => 'bg-bluePost',
+        default => 'bg-button',
+    };
+}
+
+function formatDateString($date): string
+{
+    $date = strtotime($date);
+    return date('d/m/y H:i', $date);
+}

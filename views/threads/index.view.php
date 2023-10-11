@@ -3,7 +3,7 @@
 <?php require base_path('views/partials/nav.php') ?>
 
     <main class="flex flex-col justify-center items-center h-auto w-auto p-8 gap-5">
-<!--        --><?php //dd($threads) ?>
+        <!--        --><?php //dd($threads) ?>
         <div class="w-[1000px]">
             <form
                     action="/threads"
@@ -31,33 +31,42 @@
         </div>
 
         <div class="bg-[#FDF9E8] w-[1000px] h-auto rounded-[15px] flex flex-col justify-center items-center gap-4 p-4">
-
+            <?php $index = 0; ?>
             <?php foreach ($threads as $thread) : ?>
-            <div class="flex flex-col justify-center items-start gap-2 w-full">
-                <div class="flex justify-between w-full">
-                    <div class="flex justify-center items-center gap-4">
-                        <div class="rounded-full w-10 h-10 bg-button">
+                <div class="flex flex-col justify-center items-start gap-2 w-full">
+                    <div class="flex justify-between w-full">
+                        <div class="flex justify-center items-center gap-4">
 
+                            <div class="rounded-full w-10 h-10 <?= getUserColor($index) ?>">
+
+                            </div>
+                            <div>
+                                <p><?= $thread['name'] ?></p>
+                            </div>
                         </div>
                         <div>
-                            <p><?= $thread['name'] ?></p>
+                            <?php if ($thread['email'] === $_SESSION['user']['email']) : ?>
+                                <a
+                                        href="/thread/edit?id=<?= $thread['id'] ?>"
+                                        class="<?= getUserColor($index) ?> border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow m-2 w-fit"
+                                >Edit</a>
+                            <?php endif; ?>
                         </div>
                     </div>
-                    <div>
-                        <a href="/thread?id=<?= $thread['id'] ?>" class="bg-button border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow m-2 w-fit">Edit</a>
+
+                    <div class="border-y-green-700">
+                        <a href="/thread?id=<?= $thread['id'] ?>">
+                            <div><?= htmlspecialchars($thread['title']) ?></div>
+                        </a>
+                        <div><?= htmlspecialchars($thread['description'] ?? '') ?></div>
+                    </div>
+
+                    <div class="flex w-full justify-end">
+                        <div class="text-secondary"><?= formatDateString($thread['last_edit']) ?></div>
                     </div>
                 </div>
-
-                <div class="border-y-green-700">
-                    <div><?= $thread['title'] ?></div>
-                    <div><?= $thread['description'] ?></div>
-                </div>
-
-                <div class="flex w-full justify-end">
-                    <div class="text-secondary"><?= $thread['last_edit'] ?></div>
-                </div>
-            </div>
-            <div class="w-full h-0.5 bg-neutral-50 rounded"></div>
+                <div class="w-full h-0.5 bg-neutral-50 rounded"></div>
+                <?php $index++; ?>
             <?php endforeach; ?>
         </div>
     </main>

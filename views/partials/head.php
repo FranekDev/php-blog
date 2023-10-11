@@ -8,11 +8,11 @@
     <title>PHP Blog</title>
     <link
         rel="stylesheet"
-        href="./css/style.css"
+        href="/css/style.css"
     >
     <link
             rel="icon"
-            href="./img/logo.svg"
+            href="/img/logo.svg"
     >
 </head>
 <body class="h-full bg-main">

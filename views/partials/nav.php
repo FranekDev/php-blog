@@ -2,7 +2,7 @@
     <div class="flex flex-row justify-between gap-10 h-14">
         <div class="shrink-0">
             <img
-                    src="./img/logo.svg"
+                    src="/img/logo.svg"
                     alt="Logo"
                     class="w-14 h-14"
             >

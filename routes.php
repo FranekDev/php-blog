@@ -18,3 +18,5 @@ $router->get('/threads', 'threads/index.php')->only('auth');
 $router->post('/threads', 'threads/store.php')->only('auth');
 
 // Thread
+$router->get('/thread/edit', 'threads/edit.php')->only('auth');
+$router->patch('/threads', 'threads/update.php')->only('auth');
