@@ -32,5 +32,6 @@ $db->query('insert into posts(title, last_edit, user_id) values(:title, :last_ed
     'user_id' => $user_id['id']
 ]);
 
-header('location: /threads');
-exit();
+//header('location: /threads');
+//exit();
+redirect('/threads');

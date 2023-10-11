@@ -19,8 +19,8 @@ if (!Validator::string($_POST['title'], 1, 100)) {
     $errors['title'] = 'A title of no more that 100 characters is required';
 }
 
-if (!Validator::string($_POST['description'], 1, 1000)) {
-    $errors['title'] = 'A description of no more that 1,000 characters is required';
+if (!Validator::string($_POST['description'], 0, 1000)) {
+    $errors['description'] = 'A description of no more that 1,000 characters is required';
 }
 
 if (count($errors)) {
@@ -29,10 +29,15 @@ if (count($errors)) {
         'thread' => $thread
     ]);
 }
-$db->query('update posts set title = :title, description = :description where id = :id', [
-    'title' => $_POST['title'],
-    'description' => $_POST['description'],
-    'id' => $_POST['id']
+
+date_default_timezone_set('Europe/Warsaw');
+$date = date("Y-m-d H:i:s");
+
+$db->query('update posts set title = :title, description = :description, last_edit = :last_edit where id = :id', [
+    'title' => trim($_POST['title']),
+    'description' => htmlspecialchars(trim($_POST['description'])),
+    'id' => $_POST['id'],
+    'last_edit' => $date
 ]);
 
 redirect('/threads');

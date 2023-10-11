@@ -21,6 +21,8 @@ module.exports = {
       },
       fontFamily: {
         'oi': ['Oi'],
+        'roboto': ['Roboto'],
+        'montserrat': ['Montserrat']
       },
     },
   },

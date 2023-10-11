@@ -23,7 +23,7 @@
         href="/img/logo.svg"
     >
 </head>
-<body class="h-full bg-main">
+<body class="h-full bg-main font-roboto">
 
 
 <div class="bg-circleTL bg-no-repeat bg-left-top h-full overflow-hidden">
