@@ -1,24 +1,20 @@
-<nav class="flex flex-row justify-between items-center w-full h-auto px-8 pt-4 z-10">
+<nav class="flex flex-row justify-between items-center w-full h-auto px-8 pt-4 sticky top-0 z-50">
     <div class="flex flex-row justify-between gap-10 h-14">
         <div class="flex justify-center items-center gap-x-20 border-[3px] border-black px-12 py-2 rounded-3xl [&>a]:text-lg bg-main">
             <a
                     href="/"
-                    class="<?= urlIs('/') ? 'text-black' : 'text-secondary' ?>"
+                    class="<?= urlIs('/') ? 'text-black' : 'text-secondary' ?> hover:text-zinc-500 transition-all"
             >Home</a>
             <?php if ($_SESSION['user'] ?? false) : ?>
                 <a
                         href="/threads"
-                        class="<?= urlIs('/threads') ? 'text-black' : 'text-secondary' ?>"
+                        class="<?= urlIs('/threads') ? 'text-black' : 'text-secondary' ?> hover:text-zinc-500 transition-all"
                 >Threads</a>
             <?php endif; ?>
             <a
                     href="/about"
-                    class="<?= urlIs('/about') ? 'text-black' : 'text-secondary' ?>"
+                    class="<?= urlIs('/about') ? 'text-black' : 'text-secondary' ?> hover:text-zinc-500 transition-all"
             >About</a>
-            <a
-                    href="/contact"
-                    class="<?= urlIs('/contact') ? 'text-black' : 'text-secondary' ?>"
-            >Contact</a>
         </div>
     </div>
 

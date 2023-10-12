@@ -1,8 +1,8 @@
 <?php
 
+// Pages
 $router->get('/', 'index.php');
 $router->get('/about', 'about.php');
-$router->get('/contact', 'contact.php');
 
 // Log in
 $router->get('/login', 'session/create.php')->only('guest');
@@ -28,3 +28,6 @@ $router->get('/comment/edit', 'comments/edit.php');
 $router->post('/thread', 'comments/store.php')->only('auth');
 $router->patch('/thread', 'comments/update.php')->only('auth');
 $router->delete('/thread', 'comments/destroy.php')->only('auth');
+
+// Admin
+$router->get('/admin', 'admin/index.php');

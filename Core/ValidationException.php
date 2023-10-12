@@ -7,7 +7,7 @@ class ValidationException extends \Exception
     public readonly array $errors;
     public readonly array $old;
 
-    public static function throw($errors, $old)
+    public static function throw(array $errors, array $old)
     {
         $instance = new static;
 

@@ -6,11 +6,19 @@
             "email": "49079734+FranekDev@users.noreply.github.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
             "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest-plugin-type-coverage": "^2.4",
+        "pestphp/pest": "^2.23"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }

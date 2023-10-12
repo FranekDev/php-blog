@@ -4,8 +4,6 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
-//dd($_POST);
-
 $db = App::resolve(Database::class);
 
 $comment = $db->query('select * from comments where id = :id', [

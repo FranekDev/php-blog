@@ -10,7 +10,7 @@ class Database
     public PDO $connection;
     public PDOStatement $statement;
 
-    public function __construct($config, string $username = 'postgres', string $password = 'postgres')
+    public function __construct(array $config, string $username = 'postgres', string $password = 'postgres')
     {
         $dsn = 'pgsql:' . http_build_query($config, '', ';') . ';options=\'--client_encoding=UTF8\'';
 
@@ -19,7 +19,7 @@ class Database
         ]);
     }
 
-    public function query($query, $params = []): false | Database
+    public function query(string $query, array $params = []): static
     {
         $this->statement = $this->connection->prepare($query);
 
@@ -33,12 +33,12 @@ class Database
         return $this->statement->fetchAll();
     }
 
-    public function find()
+    public function find(): mixed
     {
         return $this->statement->fetch();
     }
 
-    public function findOrFail()
+    public function findOrFail(): mixed
     {
         $result = $this->find();
 

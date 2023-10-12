@@ -13,6 +13,9 @@
                         class="w-[500px] h-[40px] bg-[#FDF9E8] rounded-[15px] p-4"
                         name="email"
                 >
+                <?php if (isset($errors['email'])) : ?>
+                    <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
+                <?php endif; ?>
             </label>
             <label>
                 <input
@@ -28,9 +31,7 @@
 
             <button class="bg-button border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow w-fit">Log in
             </button>
-            <?php if (isset($errors['email'])) : ?>
-                <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
-            <?php endif; ?>
+
         </form>
     </main>
 

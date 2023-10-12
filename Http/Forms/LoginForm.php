@@ -20,14 +20,14 @@ class LoginForm
         }
     }
 
-    public static function validate($attributes)
+    public static function validate(array $attributes): LoginForm | null
     {
         $instance = new static($attributes);
 
         return $instance->failed() ? $instance->throw() : $instance;
     }
 
-    public function throw()
+    public function throw(): void
     {
         ValidationException::throw($this->errors(), $this->attributes);
     }
@@ -42,7 +42,7 @@ class LoginForm
         return $this->errors;
     }
 
-    public function error($field, $message)
+    public function error(string $field, string $message): static
     {
         $this->errors[$field] = $message;
 

@@ -20,7 +20,7 @@
                         <?php if ($thread['email'] === $_SESSION['user']['email']) : ?>
                             <a
                                     href="/thread/edit?id=<?= $thread['id'] ?>"
-                                    class="<?= getUserColor($index) ?> border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow m-2 w-fit"
+                                    class="bg-button border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow m-2 w-fit"
                             >Edit</a>
                         <?php endif; ?>
                     </div>
@@ -47,55 +47,54 @@
 
         <?php if (!empty($comments)) : ?>
             <div class="bg-[#FDF9E8] w-[1000px] h-auto rounded-[15px] flex flex-col justify-center items-center gap-4 p-4 mb-10">
-            <?php $index = 0; ?>
-            <?php foreach ($comments as $comment) : ?>
-                <div class="flex flex-col items-start w-full gap-4">
+                <?php $index = 0; ?>
+                <?php foreach ($comments as $comment) : ?>
+                    <div class="flex flex-col items-start w-full gap-4">
 
-                    <div class="">
-                        <div class="flex justify-between w-full">
-                            <div class="flex justify-center items-center gap-4">
+                        <div class="">
+                            <div class="flex justify-between w-full">
+                                <div class="flex justify-center items-center gap-4">
 
-                                <div class="rounded-full w-8 h-8 <?= getUserColor($index) ?>">
+                                    <div class="rounded-full w-8 h-8 <?= getUserColor($index) ?>">
 
-                                </div>
-                                <div>
-                                    <p><?= $comment['name'] ?></p>
+                                    </div>
+                                    <div>
+                                        <p><?= $comment['name'] ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <p><?= $comment['body'] ?></p>
-                    </div>
-
-                    <div class="flex w-full justify-between">
                         <div>
-                            <p class="text-secondary"><?= formatDateString($comment['last_edit']) ?></p>
+                            <p><?= nl2br(htmlspecialchars($comment['body'])) ?></p>
                         </div>
-                        <div>
-                            <?php if ($comment['email'] === $_SESSION['user']['email']) : ?>
-                                <a
-                                        href="/comment/edit?id=<?= $comment['id'] ?>"
-                                        class="<?= getUserColor($index) ?> border-2 border-black rounded-xl px-4 py-1.5 m-2 w-fit"
-                                >Edit</a>
-                            <?php endif; ?>
+
+                        <div class="flex w-full justify-between">
+                            <div>
+                                <p class="text-secondary text-xs"><?= formatDateString($comment['last_edit']) ?></p>
+                            </div>
+                            <div>
+                                <?php if ($comment['email'] === $_SESSION['user']['email']) : ?>
+                                    <a
+                                            href="/comment/edit?id=<?= $comment['id'] ?>"
+                                            class="<?= getUserColor($index) ?> rounded-xl px-4 py-1.5 m-2 w-fit"
+                                    >Edit</a>
+                                <?php endif; ?>
+                            </div>
                         </div>
+
                     </div>
+                    <div class="w-full h-0.5 bg-neutral-50 rounded"></div>
+                    <?php $index++; ?>
 
-                </div>
-                <div class="w-full h-0.5 bg-neutral-50 rounded"></div>
-                <?php $index++; ?>
-
-            <?php endforeach; ?>
-        <?php else : ?>
-            <p>No comments.</p>
+                <?php endforeach; ?>
             </div>
+        <?php else : ?>
+            <p class="mt-4 mb-8">No comments.</p>
         <?php endif; ?>
     </div>
 
-    <!--    <div class="fixed bottom-0 mb-10 shadow-sm w-full flex justify-center">-->
-    <div class="mb-10 shadow-sm w-full flex justify-center">
+    <div class="mb-10 w-full flex justify-center">
         <div class="w-[1000px] border-2 border-black rounded-xl bg-[#FDF9E8] shadow-buttonShadow">
             <form
                     action=""
@@ -123,15 +122,13 @@
                         <p class="text-red-500 text-xs mt-2"><?= $errors['comment'] ?></p>
                     <?php endif; ?>
                 </label>
-                <div class="flex justify-center items-center bg-button border-[3px] border-black rounded-xl w-[45px] h-[45px]">
-                    <button>
-                        <img
-                                src="./img/plus.svg"
-                                alt="Add"
-                                class="w-[20px] h-[20px]"
-                        >
-                    </button>
-                </div>
+                <button class="flex justify-center items-center bg-button border-[3px] border-black rounded-xl w-[45px] h-[45px] hover:shadow hover:bg-[#F9D34F] transition-all">
+                    <img
+                            src="./img/plus.svg"
+                            alt="Add"
+                            class="w-[20px] h-[20px]"
+                    >
+                </button>
             </form>
         </div>
     </div>

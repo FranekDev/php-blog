@@ -9,7 +9,7 @@ class Middleware
         'auth' => Auth::class
     ];
 
-    public static function resolve($key)
+    public static function resolve(?string $key): void
     {
         if (!$key) {
             return;

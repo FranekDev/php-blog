@@ -4,8 +4,6 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
-//dd($_GET);
-
 $db = App::resolve(Database::class);
 
 $errors = [];

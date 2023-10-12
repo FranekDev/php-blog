@@ -11,12 +11,12 @@ function dd($value): never
     die();
 }
 
-function urlIs($value): bool
+function urlIs(string $value): bool
 {
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
-function abort($code = 404): never
+function abort(int $code = Response::NOT_FOUND): never
 {
     http_response_code($code);
 
@@ -25,32 +25,32 @@ function abort($code = 404): never
     die();
 }
 
-function authorize($condition, $status = Response::FORBIDDEN) : void
+function authorize(bool $condition, $status = Response::FORBIDDEN) : void
 {
     if (! $condition) {
         abort($status);
     }
 }
 
-function base_path($path): string
+function base_path(string $path): string
 {
     return BASE_PATH . $path;
 }
 
-function view($path, $attributes = [])
+function view(string $path, array $attributes = [])
 {
     extract($attributes);
 
     require base_path('views/' . $path);
 }
 
-function redirect($path)
+function redirect(string $path)
 {
     header("location: {$path}");
     exit();
 }
 
-function getUserColor($id): string
+function getUserColor(int $id): string
 {
     return match ($id % 3) {
         1 => 'bg-greenPost',
