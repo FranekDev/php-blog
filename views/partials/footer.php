@@ -1,8 +1,8 @@
 </div>
 
 <footer class="w-full px-10 py-10">
-    <div class="bg-[#FDF9E8] w-full rounded-xl flex justify-between items-center px-10 py-10 text-[#BCBCBC] text-base mb-8">
-        <div class="py-4">
+    <div class="bg-[#FDF9E8] w-full rounded-xl flex justify-between items-center px-10 py-5 text-[#BCBCBC] text-base">
+        <div class="">
             <p>Created by</p>
             <div class="flex justify-start items-center gap-2">
                 <p>FranekDev</p>

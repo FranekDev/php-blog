@@ -30,4 +30,7 @@ $router->patch('/thread', 'comments/update.php')->only('auth');
 $router->delete('/thread', 'comments/destroy.php')->only('auth');
 
 // Admin
-$router->get('/admin', 'admin/index.php');
+$router->get('/admin', 'admin/index.php')->only('admin');
+$router->get('/admin/users', 'admin/users/index.php')->only('admin');
+$router->get('/admin/threads', 'admin/threads/index.php')->only('admin');
+$router->get('/admin/comments', 'admin/comments/index.php')->only('admin');

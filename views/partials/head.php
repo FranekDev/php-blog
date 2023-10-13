@@ -15,6 +15,6 @@
             href="/img/logo.svg"
     >
 </head>
-<body class="h-auto min-h-full bg-main font-roboto">
+<body class="h-auto min-h-full bg-main font-roboto selection:bg-button">
 
 <div class="min-h-screen bg-waves bg-no-repeat bg-left-top">

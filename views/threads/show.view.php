@@ -122,7 +122,7 @@
                         <p class="text-red-500 text-xs mt-2"><?= $errors['comment'] ?></p>
                     <?php endif; ?>
                 </label>
-                <button class="flex justify-center items-center bg-button border-[3px] border-black rounded-xl w-[45px] h-[45px] hover:shadow hover:bg-[#F9D34F] transition-all">
+                <button class="flex justify-center items-center bg-button border-[3px] border-black rounded-xl w-[45px] h-[45px] hover:shadow hover:bg-hoverBtn transition-all">
                     <img
                             src="./img/plus.svg"
                             alt="Add"

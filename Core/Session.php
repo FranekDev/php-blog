@@ -41,6 +41,6 @@ class Session
         session_destroy();
 
         $params = session_get_cookie_params();
-        setcookie('PHPSESSID', '', time() - 3600, $params['domain'], $params['seure'], $params['httponly']);
+        setcookie('PHPSESSID', '', time() - 3600, $params['domain'], $params['secure'], $params['httponly']);
     }
 }
