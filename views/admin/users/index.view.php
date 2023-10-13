@@ -12,8 +12,10 @@
                 <thead>
                 <tr class="[&>td]:p-2">
                     <td>Lp.</td>
+                    <td>ID</td>
                     <td>Name</td>
                     <td>Email</td>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -21,8 +23,18 @@
                 <?php foreach ($users as $user) : ?>
                     <tr class="[&>td]:p-2 <?= $index % 2 === 0 ? 'bg-[#FDF9E8]' : 'bg-main' ?>">
                         <td><?= $index ?></td>
+                        <td><?= $user['id'] ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['email'] ?></td>
+                        <td>
+                            <form action="/admin/users" method="post">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                     <?php $index++; ?>
                 <?php endforeach; ?>

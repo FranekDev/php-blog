@@ -34,3 +34,8 @@ $router->get('/admin', 'admin/index.php')->only('admin');
 $router->get('/admin/users', 'admin/users/index.php')->only('admin');
 $router->get('/admin/threads', 'admin/threads/index.php')->only('admin');
 $router->get('/admin/comments', 'admin/comments/index.php')->only('admin');
+
+// Admin Delete
+$router->delete('/admin/users', 'admin/users/destroy.php')->only('admin');
+$router->delete('/admin/threads', 'admin/threads/destroy.php')->only('admin');
+$router->delete('/admin/comments', 'admin/comments/destroy.php')->only('admin');

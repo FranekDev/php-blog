@@ -6,7 +6,7 @@
 
     <?php require base_path('views/admin/nav.php')?>
 
-    <div class="bg-[#FDF9E8] rounded-xl text-neutral-600 text-center border-black border-2 overflow-hidden p-2">
+    <div class="bg-[#FDF9E8] rounded-xl text-neutral-600 text-center border-black border-2 overflow-hidden">
         <table>
             <thead>
             <tr class="[&>td]:p-2">

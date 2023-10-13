@@ -12,6 +12,7 @@
                 <thead>
                 <tr class="[&>td]:p-2">
                     <td>Lp.</td>
+                    <td>ID</td>
                     <td>Title</td>
                     <td>Description</td>
                     <td>User ID</td>
@@ -24,6 +25,7 @@
                 <?php foreach ($threads as $thread) : ?>
                     <tr class="[&>td]:p-2 <?= $index % 2 === 0 ? 'bg-[#FDF9E8]' : 'bg-main' ?>">
                         <td><?= $index ?></td>
+                        <td><?= $thread['id'] ?></td>
                         <td><?= $thread['title'] ?></td>
                         <td><?= $thread['description'] ?></td>
                         <td><?= $thread['user_id'] ?></td>
@@ -31,7 +33,8 @@
                         <td>
                             <form action="/admin/threads" method="post">
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button class="bg-redBtn px-4 py-2 rounded">
+                                <input type="hidden" name="id" value="<?= $thread['id'] ?>">
+                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all">
                                     Delete
                                 </button>
                             </form>

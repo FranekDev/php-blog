@@ -12,10 +12,12 @@
                 <thead>
                 <tr class="[&>td]:p-2">
                     <td>Lp.</td>
+                    <td>ID</td>
                     <td>Body</td>
-                    <td>Post ID</td>
+                    <td>Thread ID</td>
                     <td>User ID</td>
                     <td>Last edit</td>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,10 +25,20 @@
                 <?php foreach ($comments as $comment) : ?>
                     <tr class="[&>td]:p-2 <?= $index % 2 === 0 ? 'bg-[#FDF9E8]' : 'bg-main' ?>">
                         <td><?= $index ?></td>
+                        <td><?= $comment['id'] ?></td>
                         <td><?= $comment['body'] ?></td>
                         <td><?= $comment['post_id'] ?></td>
                         <td><?= $comment['user_id'] ?></td>
                         <td><?= formatDateString($comment['last_edit']) ?></td>
+                        <td>
+                            <form action="/admin/comments" method="post">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="id" value="<?= $comment['id'] ?>">
+                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                     <?php $index++; ?>
                 <?php endforeach; ?>
