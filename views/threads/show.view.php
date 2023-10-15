@@ -1,4 +1,6 @@
-<?php require base_path('views/partials/head.php') ?>
+<?php use Core\Session;
+
+require base_path('views/partials/head.php') ?>
 
 <?php require base_path('views/partials/nav.php') ?>
 
@@ -17,7 +19,7 @@
                         </div>
                     </div>
                     <div>
-                        <?php if ($thread['email'] === $_SESSION['user']['email']) : ?>
+                        <?php if ($thread['email'] === Session::get('user')['email']) : ?>
                             <a
                                     href="/thread/edit?id=<?= $thread['id'] ?>"
                                     class="bg-button border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow m-2 w-fit"
@@ -74,7 +76,7 @@
                                 <p class="text-secondary text-xs"><?= formatDateString($comment['last_edit']) ?></p>
                             </div>
                             <div>
-                                <?php if ($comment['email'] === $_SESSION['user']['email']) : ?>
+                                <?php if ($comment['email'] === Session::get('user')['email']) : ?>
                                     <a
                                             href="/comment/edit?id=<?= $comment['id'] ?>"
                                             class="<?= getUserColor($index) ?> rounded-xl px-4 py-1.5 m-2 w-fit"

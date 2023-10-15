@@ -7,7 +7,7 @@
     <?php require base_path('views/admin/nav.php') ?>
 
     <?php if (!empty($threads)) : ?>
-        <div class="border-black border-2 overflow-hidden bg-[#FDF9E8] rounded-xl text-neutral-600">
+        <div class="border-black border-2 overflow-hidden bg-[#FDF9E8] rounded-xl text-neutral-600 max-w-[800px]">
             <table class="">
                 <thead>
                 <tr class="[&>td]:p-2">
@@ -34,8 +34,13 @@
                             <form action="/admin/threads" method="post">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="id" value="<?= $thread['id'] ?>">
-                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all">
-                                    Delete
+                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all w-8 h-8 flex justify-center items-center">
+<!--                                    Delete-->
+                                    <img
+                                            src="/img/delete.svg"
+                                            alt="Delete"
+                                            class=""
+                                    >
                                 </button>
                             </form>
                         </td>

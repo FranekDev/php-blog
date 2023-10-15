@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 use Core\Validator;
 
 $db = App::resolve(Database::class);
@@ -10,7 +11,7 @@ $comment = $db->query('select * from comments where id = :id', [
     'id' => $_POST['id']
 ])->findOrFail();
 
-authorize($comment['user_id'] === $_SESSION['user']['id']);
+authorize($comment['user_id'] === Session::get('user')['id']);
 
 $errors = [];
 

@@ -1,4 +1,6 @@
-<?php require base_path('views/partials/head.php') ?>
+<?php use Core\Session;
+
+require base_path('views/partials/head.php') ?>
 
 <?php require base_path('views/partials/nav.php') ?>
 
@@ -46,7 +48,7 @@
                                 </div>
                             </div>
                             <div>
-                                <?php if ($thread['email'] === $_SESSION['user']['email']) : ?>
+                                <?php if ($thread['email'] === Session::get('user')['email']) : ?>
                                     <a
                                             href="/thread/edit?id=<?= $thread['id'] ?>"
                                             class="<?= getUserColor($index) ?> border-2 border-black rounded-xl px-4 py-1.5 shadow-buttonShadow m-2 w-fit"

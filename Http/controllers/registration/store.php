@@ -33,7 +33,9 @@ if (!Validator::passwords($password, $confirm_password)) {
 
 if (!empty($errors)) {
     return view('registration/create.view.php', [
-        'errors' => $errors
+        'errors' => $errors,
+        'name' => $name,
+        'email' => $email
     ]);
 }
 
@@ -41,11 +43,7 @@ $user = $db->query('select * from users where email = :email', [
     'email' => $email
 ])->find();
 
-if ($user) {
-//    header('location: /');
-//    exit();
-    redirect('/');
-} else {
+if (!$user) {
     $db->query('insert into users(name, email, password) values(:name, :email, :password)', [
         'name' => $name,
         'email' => $email,
@@ -57,7 +55,23 @@ if ($user) {
         $email, $password
     );
 
-//    header('location: /');
-//    exit();
-    redirect('/');
 }
+
+redirect('/');
+
+//if ($user) {
+//    redirect('/');
+//} else {
+//    $db->query('insert into users(name, email, password) values(:name, :email, :password)', [
+//        'name' => $name,
+//        'email' => $email,
+//        'password' => password_hash($password, PASSWORD_BCRYPT)
+//    ]);
+//
+//
+//    (new Authenticator)->attempt(
+//        $email, $password
+//    );
+//
+//    redirect('/');
+//}

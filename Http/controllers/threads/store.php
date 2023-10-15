@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 use Core\Validator;
 
 $db = App::resolve(Database::class);
@@ -27,7 +28,7 @@ if (!empty($errors)) {
 }
 
 $user_id = $db->query('select id from users where email = :email', [
-    'email' => $_SESSION['user']['email']
+    'email' => Session::get('user')['email']
 ])->find();
 
 date_default_timezone_set('Europe/Warsaw');

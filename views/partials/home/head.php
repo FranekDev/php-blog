@@ -22,6 +22,7 @@
         rel="icon"
         href="/img/logo.svg"
     >
+    <script src="/js/main.js" async defer></script>
 </head>
 <body class="h-full bg-main font-roboto selection:bg-button">
 

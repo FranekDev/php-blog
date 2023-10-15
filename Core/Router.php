@@ -72,4 +72,9 @@ class Router
 
         die();
     }
+
+    public function routes(): array
+    {
+        return $this->routes;
+    }
 }

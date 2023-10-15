@@ -25,7 +25,7 @@ function abort(int $code = Response::NOT_FOUND): never
     die();
 }
 
-function authorize(bool $condition, $status = Response::FORBIDDEN) : void
+function authorize(bool $condition, int $status = Response::FORBIDDEN) : void
 {
     if (! $condition) {
         abort($status);

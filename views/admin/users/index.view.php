@@ -27,13 +27,19 @@
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['email'] ?></td>
                         <td>
+                            <?php if ($user['email'] !== 'admin@admin.com') : ?>
                             <form action="/admin/users" method="post">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="id" value="<?= $user['id'] ?>">
-                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all">
-                                    Delete
+                                <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all  w-8 h-8 flex justify-center items-center">
+<!--                                    Delete-->
+                                    <img
+                                            src="/img/delete.svg"
+                                            alt="Delete"
+                                    >
                                 </button>
                             </form>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php $index++; ?>

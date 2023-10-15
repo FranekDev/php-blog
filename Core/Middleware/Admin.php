@@ -2,12 +2,15 @@
 
 namespace Core\Middleware;
 
+use Core\Session;
+
 class Admin
 {
     public function handle(): void
     {
-        if($_SESSION['user']['email'] !== 'admin@admin.com') {
-            redirect('/');
+        if((!Session::has('user') ?? false) || (Session::get('user')['email'] !== 'admin@admin.com')) {
+            header('location: /');
+            exit();
         }
     }
 }

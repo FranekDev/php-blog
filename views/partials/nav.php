@@ -1,3 +1,8 @@
+<?php
+
+use Core\Session;
+
+?>
 <nav class="flex flex-row justify-between items-center w-full h-auto px-8 pt-4 sticky top-0 z-50">
     <div class="flex flex-row justify-between gap-10 h-14">
         <div class="shrink-0">
@@ -14,7 +19,7 @@
                     href="/"
                     class="<?= urlIs('/') ? 'text-black' : 'text-secondary' ?> hover:text-zinc-500 transition-all"
             >Home</a>
-            <?php if ($_SESSION['user'] ?? false) : ?>
+            <?php if (Session::has('user') ?? false) : ?>
                 <a
                         href="/threads"
                         class="<?= urlIs('/threads') ? 'text-black' : 'text-secondary' ?> hover:text-zinc-500 transition-all"
@@ -28,7 +33,7 @@
     </div>
 
     <div class="h-14">
-        <?php if ($_SESSION['user'] ?? false) : ?>
+        <?php if (Session::has('user') ?? false) : ?>
             <form
                     action="/session"
                     method="post"

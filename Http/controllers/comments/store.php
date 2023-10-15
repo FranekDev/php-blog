@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 use Core\Validator;
 
 $db = App::resolve(Database::class);
@@ -33,7 +34,7 @@ date_default_timezone_set('Europe/Warsaw');
 $date = date("Y-m-d H:i:s");
 
 $user_id = $db->query('select id from users where email = :email', [
-    'email' => $_SESSION['user']['email']
+    'email' => Session::get('user')['email']
 ])->find();
 
 $db->query('insert into comments(body,post_id, user_id, last_edit) values (:body, :post_id, :user_id, :last_edit)', [

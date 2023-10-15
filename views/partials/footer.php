@@ -20,7 +20,9 @@
         <div>
             <ul class="flex justify-around items-center gap-10">
                 <li><a href="/">Home</a></li>
-                <?php if ($_SESSION['user'] ?? false) : ?>
+                <?php use Core\Session;
+
+                if (Session::has('user') ?? false) : ?>
                     <li><a href="/threads">Threads</a></li>
                 <?php endif; ?>
                 <li><a href="/about">About</a></li>
