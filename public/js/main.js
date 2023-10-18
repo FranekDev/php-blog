@@ -1,5 +1,17 @@
-let eyes = document.querySelectorAll('.eye');
-let passwords = document.querySelectorAll('input[type=password]');
+// const getDomElements = (...elements) => {
+//     // if (elements.length === 1) return document.querySelector(elements);
+//     // const domElements = [];
+//     //
+//     // elements.forEach(element => {
+//     //     domElements.push(document.querySelectorAll(element));
+//     // });
+//     //
+//     // return domElements;
+//     return elements.map(element => document.querySelectorAll(element));
+// };
+
+const getDomElements = (...elements) => elements.map(element => document.querySelectorAll(element));
+
 
 const togglePassword = (input, img) => {
     if (input.type === 'password') {
@@ -11,9 +23,9 @@ const togglePassword = (input, img) => {
     }
 };
 
+const [eyes, passwords] = getDomElements('.eye', 'input[type=password]');
+
 eyes.forEach((eye, index) => {
-    eyes = document.querySelectorAll('.eye');
-    passwords = document.querySelectorAll('input[type=password]');
     eye.addEventListener('click', () => {
         togglePassword(passwords[index], eye);
     });

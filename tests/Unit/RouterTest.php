@@ -1,22 +1,15 @@
 <?php
 
 use Core\Router;
-use Mockery;
 
 test('Router contain routes', function () {
 
     $router = new Router();
-//    $router = Mockery::mock(Router::class);
-
-//    $router->shouldReceive('get')->with('/threads', 'index.php');
 
     $router->get('/', 'index.php');
     $router->post('/threads', 'threads/store.php')->only('auth');
     $router->patch('/threads', 'threads/update.php')->only('auth');
     $router->delete('/thread', 'threads/destroy.php')->only('admin');
-//    $router->shouldReceive('routes')->with([
-//        'method' => 'GET'
-//    ])->getMock();
 
     $expected = [
         [

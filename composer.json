@@ -15,11 +15,15 @@
     "require-dev": {
         "pestphp/pest-plugin-type-coverage": "^2.4",
         "pestphp/pest": "^2.23",
-        "mockery/mockery": "^1.6"
+        "mockery/mockery": "^1.6",
+        "phpstan/phpstan": "^1.10"
     },
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "require": {
+        "itsgoingd/clockwork": "^5.1"
     }
 }

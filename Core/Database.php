@@ -28,7 +28,7 @@ class Database
         return $this;
     }
 
-    public function get(): false | array
+    public function get(): false|array
     {
         return $this->statement->fetchAll();
     }
@@ -42,7 +42,7 @@ class Database
     {
         $result = $this->find();
 
-        if(! $result) {
+        if (!$result) {
             abort();
         }
 

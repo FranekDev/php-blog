@@ -32,11 +32,22 @@
                             <td><?= $comment['user_id'] ?></td>
                             <td><?= formatDateString($comment['last_edit']) ?></td>
                             <td>
-                                <form action="/admin/comments" method="post">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="id" value="<?= $comment['id'] ?>">
+                                <form
+                                        action="/admin/comments"
+                                        method="post"
+                                >
+                                    <input
+                                            type="hidden"
+                                            name="_method"
+                                            value="DELETE"
+                                    >
+                                    <input
+                                            type="hidden"
+                                            name="id"
+                                            value="<?= $comment['id'] ?>"
+                                    >
                                     <button class="bg-redBtn px-2 py-1.5 rounded text-xs hover:bg-[#FD8065] transition-all  w-8 h-8 flex justify-center items-center">
-<!--                                        Delete-->
+                                        <!--                                        Delete-->
                                         <img
                                                 src="/img/delete.svg"
                                                 alt="Delete"

@@ -13,6 +13,8 @@ require BASE_PATH . 'Core/functions.php';
 
 require base_path('bootstrap.php');
 
+$clockwork = Clockwork\Support\Vanilla\Clockwork::init();
+
 $router = new \Core\Router();
 
 $routes = require base_path('routes.php');
