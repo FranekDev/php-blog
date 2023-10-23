@@ -12,7 +12,7 @@ require('partials/home/head.php') ?>
             </p>
         <?php else: ?>
             <p class="text-zinc-600 text-2xl">
-                Best PHP blog with<br>
+                PHP blog with<br>
                 Neobrutalism UI
             </p>
         <?php endif; ?>
